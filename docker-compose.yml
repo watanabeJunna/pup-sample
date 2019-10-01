@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  scraping:
+    build: ./
+    command: ./node_modules/.bin/ts-node index.ts
+    volumes: 
+      - './:/app/'
+    working_dir: /app
+  scraping-init:
+    image: node:10.15.3-alpine
+    command: yarn
+    volumes: 
+      - './:/app/'
+    working_dir: /app
